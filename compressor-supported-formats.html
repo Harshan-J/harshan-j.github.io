@@ -1,0 +1,350 @@
+<!doctype html>
+<title>Compressor Supported File Types</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #f6f8f9;
+    --surface: #ffffff;
+    --text: #1a232b;
+    --text-muted: #59636f;
+    --accent: #1f6f78;
+    --accent-soft: #e3eeed;
+    --border: #dfe4e8;
+    --code-bg: #eef1f3;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141a1f;
+      --surface: #1b2229;
+      --text: #e8ecef;
+      --text-muted: #92a0ab;
+      --accent: #55b9ae;
+      --accent-soft: #1d3532;
+      --border: #2b343c;
+      --code-bg: #232c33;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #141a1f;
+    --surface: #1b2229;
+    --text: #e8ecef;
+    --text-muted: #92a0ab;
+    --accent: #55b9ae;
+    --accent-soft: #1d3532;
+    --border: #2b343c;
+    --code-bg: #232c33;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.65;
+    margin: 0;
+    padding: 3.5rem 1.5rem 5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  header.doc-head {
+    margin-bottom: 2.75rem;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 700;
+    font-size: 2.15rem;
+    line-height: 1.15;
+    margin: 0 0 0.6rem;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .meta {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .meta code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85em;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+
+  .summary {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem;
+    margin: 1.75rem 0 0;
+    font-size: 0.98rem;
+  }
+
+  .summary p { margin: 0; }
+  .summary strong { color: var(--accent); }
+
+  nav.toc {
+    margin: 2.5rem 0 3rem;
+    padding: 1.1rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+
+  nav.toc p.label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 0.7rem;
+  }
+
+  nav.toc ol {
+    columns: 2;
+    column-gap: 1.5rem;
+    margin: 0;
+    padding: 0 0 0 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  nav.toc li { margin-bottom: 0.45rem; break-inside: avoid; }
+
+  nav.toc a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  nav.toc a:hover,
+  nav.toc a:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  section {
+    margin: 2.5rem 0;
+    scroll-margin-top: 1.5rem;
+  }
+
+  section h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section h2 .num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  section p, section li { font-size: 0.98rem; }
+  section p { margin: 0 0 0.9rem; }
+
+  section ul {
+    margin: 0 0 0.9rem;
+    padding-left: 1.3rem;
+  }
+  section li { margin-bottom: 0.5rem; }
+
+  section li::marker { color: var(--accent); }
+
+  a { color: var(--accent); }
+
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.88em;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5rem 0 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  table caption {
+    text-align: left;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .table-wrap { overflow-x: auto; }
+
+  .badge {
+    display: inline-block;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.78rem;
+    background: var(--code-bg);
+    color: var(--text);
+    padding: 0.15em 0.55em;
+    border-radius: 5px;
+    margin: 0.1rem 0.25rem 0.1rem 0;
+  }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+  }
+
+  footer a { color: var(--accent); }
+
+  @media (max-width: 520px) {
+    nav.toc ol { columns: 1; }
+    h1 { font-size: 1.75rem; }
+  }
+</style>
+
+<main>
+  <header class="doc-head">
+    <p class="eyebrow">Supported File Types</p>
+    <h1>Compressor: Image &amp; PDF</h1>
+    <p class="meta">Updated <code>23 Sep 2026</code> &nbsp;·&nbsp; App version <code>17.0</code> &nbsp;·&nbsp; Package <code>com.harshanaj.compressor</code></p>
+    <div class="summary">
+      <p><strong>In short:</strong> Compressor reads standard photo formats (JPEG, PNG, WebP, GIF, BMP, HEIC), TIFF, over 20 camera RAW formats from every major manufacturer, and PDF documents — all processed and decoded entirely on your device, including large 50MP+ RAW and TIFF files.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p class="label">Contents</p>
+    <ol>
+      <li><a href="#standard-image-formats">Standard image formats</a></li>
+      <li><a href="#tiff">TIFF</a></li>
+      <li><a href="#camera-raw-formats">Camera RAW formats</a></li>
+      <li><a href="#pdf-documents">PDF documents</a></li>
+      <li><a href="#how-files-are-picked">How files are picked</a></li>
+      <li><a href="#large-file-handling">Large file handling</a></li>
+      <li><a href="#not-currently-supported">Not currently supported</a></li>
+    </ol>
+  </nav>
+
+  <section id="standard-image-formats">
+    <h2><span class="num">01</span> Standard image formats</h2>
+    <p>Decoded natively via Android's built-in image codecs, in Compress Images, Crop, Resize, and Images to PDF:</p>
+    <p>
+      <span class="badge">.jpg / .jpeg</span>
+      <span class="badge">.png</span>
+      <span class="badge">.webp</span>
+      <span class="badge">.gif</span>
+      <span class="badge">.bmp</span>
+      <span class="badge">.heic / .heif</span>
+    </p>
+  </section>
+
+  <section id="tiff">
+    <h2><span class="num">02</span> TIFF</h2>
+    <p>Android has no built-in TIFF codec, so Compressor decodes it directly with its own reader:</p>
+    <p><span class="badge">.tif</span> <span class="badge">.tiff</span></p>
+    <p>Includes real thumbnail previews and safe handling of very large TIFF files (tested up to 50MP+) without running out of memory.</p>
+  </section>
+
+  <section id="camera-raw-formats">
+    <h2><span class="num">03</span> Camera RAW formats</h2>
+    <p>Decoded on-device via a native RAW engine (LibRaw), covering every major camera manufacturer:</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Supported RAW extensions by manufacturer</caption>
+        <thead>
+          <tr><th>Manufacturer</th><th>Extensions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Canon</td><td><code>.cr2</code> <code>.cr3</code> <code>.crw</code></td></tr>
+          <tr><td>Nikon</td><td><code>.nef</code> <code>.nrw</code></td></tr>
+          <tr><td>Sony</td><td><code>.arw</code> <code>.srf</code> <code>.sr2</code></td></tr>
+          <tr><td>Fujifilm</td><td><code>.raf</code></td></tr>
+          <tr><td>Olympus / OM System</td><td><code>.orf</code></td></tr>
+          <tr><td>Panasonic</td><td><code>.rw2</code></td></tr>
+          <tr><td>Pentax</td><td><code>.pef</code> <code>.dng</code></td></tr>
+          <tr><td>Leica</td><td><code>.dng</code> <code>.rwl</code></td></tr>
+          <tr><td>Samsung</td><td><code>.srw</code></td></tr>
+          <tr><td>Hasselblad</td><td><code>.3fr</code> <code>.fff</code></td></tr>
+          <tr><td>Phase One</td><td><code>.iiq</code></td></tr>
+          <tr><td>Sigma</td><td><code>.x3f</code></td></tr>
+          <tr><td>Kodak</td><td><code>.dcr</code> <code>.kdc</code></td></tr>
+          <tr><td>Adobe (universal)</td><td><code>.dng</code></td></tr>
+          <tr><td>Generic</td><td><code>.raw</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Includes real thumbnail previews and safe handling of very large RAW files (tested up to 64MB / 51MP) without running out of memory, including files picked from cloud storage apps like Google Drive.</p>
+  </section>
+
+  <section id="pdf-documents">
+    <h2><span class="num">04</span> PDF documents</h2>
+    <p><span class="badge">.pdf</span></p>
+    <p>Accepted by every PDF tool — Compress, Merge, Split, and PDF to Images.</p>
+  </section>
+
+  <section id="how-files-are-picked">
+    <h2><span class="num">05</span> How files are picked</h2>
+    <p>Compress Images, Crop, Resize, and Images to PDF all share a single file picker (Android's Storage Access Framework document picker) that surfaces every format above in one place — rather than the system Photo Picker, whose format list is fixed by Google and can never show TIFF or RAW files.</p>
+  </section>
+
+  <section id="large-file-handling">
+    <h2><span class="num">06</span> Large file handling</h2>
+    <p>TIFF and RAW files are read in two cheap steps — dimensions first, then a downsampled decode — so a 50+ megapixel file doesn't require decoding at full resolution just to preview or compress it. This keeps memory use bounded regardless of source file size.</p>
+  </section>
+
+  <section id="not-currently-supported">
+    <h2><span class="num">07</span> Not currently supported</h2>
+    <p>SVG and PSD files can be selected in the picker but currently fail to decode with a clear error message — no crash, no partial output.</p>
+  </section>
+
+  <footer>
+    Compressor: Image &amp; PDF — a local-first compression utility for Android. See the <a href="compressor-privacy-policy.html">privacy policy</a>.
+  </footer>
+</main>
